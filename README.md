@@ -1,3 +1,4 @@
+<!-- Flutter Version: 3.27.2 -->
 # 🌤️ Weather Forecast BLoC App
 
 A Flutter-based mobile weather application utilizing the BLoC pattern and Clean Architecture principles.
