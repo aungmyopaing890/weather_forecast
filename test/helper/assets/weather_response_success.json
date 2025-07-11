@@ -1,0 +1,18 @@
+{
+    "cod": 200,
+    "name": "Bangkok",
+    "weather": [
+        {
+            "description": "Cloudy",
+            "icon": "10d"
+        }
+    ],
+    "main": {
+        "temp": 301.5,
+        "humidity": 70,
+        "feels_like": 300.0
+    },
+    "wind": {
+        "speed": 4.2
+    }
+}
