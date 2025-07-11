@@ -34,7 +34,5 @@ class MasterConfig {
   static const double fullWidth = 380;
   static const double fullHeight = 820;
 
-  static const String apiKey = 'c9212121c2ea9953171d7ed1644c79d8';
-
-  // static const String apiKey = '<your_api_key_here>';
+  static const String apiKey = '<your_api_key_here>';
 }
