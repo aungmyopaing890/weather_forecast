@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:weather_forecast/config/router/route_paths.dart';
 import 'package:weather_forecast/core/master_colors.dart';
 import 'package:weather_forecast/core/master_config.dart';
+import 'package:weather_forecast/core/navigator_config.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -18,17 +20,17 @@ class _SplashScreenState extends State<SplashScreen> {
     _navigateToHome();
   }
 
-  // void _gotoRoute(String route) {
-  //   Navigator.of(NavigatorConfig.getNavigatorKey().currentContext!)
-  //       .pushNamedAndRemoveUntil(
-  //     route,
-  //     (Route<dynamic> route) => false,
-  //   );
-  // }
+  void _gotoRoute(String route) {
+    Navigator.of(NavigatorConfig.getNavigatorKey().currentContext!)
+        .pushNamedAndRemoveUntil(
+      route,
+      (Route<dynamic> route) => false,
+    );
+  }
 
   void _navigateToHome() {
     Future.delayed(const Duration(seconds: 2), () {
-      // _gotoRoute(RoutePaths.fillCity);
+      _gotoRoute(RoutePaths.weatherForecast);
     });
   }
 
