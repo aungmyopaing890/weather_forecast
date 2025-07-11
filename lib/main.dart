@@ -2,12 +2,14 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:theme_manager/theme_manager.dart';
 import 'package:weather_forecast/config/router/router.dart';
 import 'package:weather_forecast/core/master_config.dart';
 import 'package:weather_forecast/core/navigator_config.dart';
 import 'package:weather_forecast/core/setup_locator.dart';
 import 'package:weather_forecast/core/themes/master_theme_data.dart';
+import 'package:weather_forecast/features/weather/presentation/bloc/bloc/temperature_unit_cubit.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -59,13 +61,20 @@ class _AppState extends State<MainApp> {
         debugPrint('ThemeState: ${state.brightnessPreference}');
       },
       themedBuilder: (BuildContext context, ThemeState state) {
-        return MaterialApp(
-          navigatorKey: NavigatorConfig.getNavigatorKey(),
-          debugShowCheckedModeBanner: false,
-          theme: state.themeData,
-          onGenerateRoute: generateRoute,
-          initialRoute: '/',
-          title: MasterConfig.app_name,
+        return MultiBlocProvider(
+          providers: [
+            BlocProvider<TemperatureUnitCubit>(
+              create: (_) => locator<TemperatureUnitCubit>(),
+            ),
+          ],
+          child: MaterialApp(
+            navigatorKey: NavigatorConfig.getNavigatorKey(),
+            debugShowCheckedModeBanner: false,
+            theme: state.themeData,
+            onGenerateRoute: generateRoute,
+            initialRoute: '/',
+            title: MasterConfig.app_name,
+          ),
         );
       },
     );
