@@ -11,7 +11,7 @@ class HourlyWeatherModel extends HourlyWeatherEntity {
   factory HourlyWeatherModel.fromJson(Map<String, dynamic> json) {
     return HourlyWeatherModel(
       time: json['dt_txt'] != null
-          ? DateTime.parse(json['dt_txt'] ?? '')
+          ? DateTime.parse(json['dt_txt'] ?? '').toLocal()
           : DateTime.now(),
       temperature: (json['main']?['temp']) ?? 0.0,
       humidity: (json['main']?['humidity']) ?? 0,
